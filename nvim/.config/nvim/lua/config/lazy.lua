@@ -24,7 +24,6 @@ vim.o.number = true
 vim.o.relativenumber = true
 vim.o.mouse = "a"
 vim.o.showmode = false
-
 -- Sync clipboard between OS and Neovim.
 --  Schedule the setting after `UiEnter` because it can increase startup-time.
 --  Remove this option if you want your OS clipboard to remain independent.
