@@ -22,7 +22,8 @@ vim.keymap.set('n', '<leader>n', '<cmd>bnext<CR>')
 vim.keymap.set('n', '<leader>p', '<cmd>bprev<CR>')
 vim.keymap.set('n', '<leader>o', 'o<ESC>k') --add a space but stay put in normal mode
 vim.keymap.set('n', '<leader>O', 'O<ESC>j')
-
+vim.keymap.set("n", "<C-d>", "<C-d>zz")
+vim.keymap.set("n", "<C-u>", "<C-u>zz")
 
 vim.o.number = true
 vim.o.relativenumber = true
