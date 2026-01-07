@@ -43,7 +43,7 @@ vim.o.timeoutlen = 750
 vim.o.list = true
 vim.opt.listchars = { tab = '» ', trail = '·', nbsp = '␣' }
 vim.o.inccommand = 'split'
-vim.o.cursorline = true
+-- vim.o.cursorline = true
 vim.o.scrolloff = 10
 vim.o.confirm = true
 vim.o.colorcolumn = "100"
