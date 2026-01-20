@@ -67,7 +67,6 @@ vim.api.nvim_create_autocmd(
     group = vim.api.nvim_create_augroup("UserLspConfig", {}),
     callback = function(ev)
       vim.bo[ev.buf].omnifunc = "v:lua.vim.lsp.omnifunc" -- Enable completion triggered by <c-x><c-o>
-
       -- Buffer local mappings.
       -- See `:help vim.lsp.*` for documentation on any of the below functions
       local opts = { buffer = ev.buf }
