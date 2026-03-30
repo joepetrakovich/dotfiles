@@ -14,7 +14,8 @@ return {
         path = "/tmp/" .. basename .. ".99.debug",
         print_on_error = true,
       },
-      model = "lmstudio-terra/qwen/qwen3-coder-30b",
+      --- model = "lmstudio-terra/qwen3/qwen3-coder-30b",
+      model = "opencode/kimi-k2.5-free",
       --- WARNING: if you change cwd then this is likely broken
       --- ill likely fix this in a later change
       ---
