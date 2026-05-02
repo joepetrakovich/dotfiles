@@ -2,6 +2,7 @@ return {
   "ThePrimeagen/99",
   config = function()
     local _99 = require("99")
+    local _worker = require("99").Extensions.Worker
 
     -- For logging that is to a file if you wish to trace through requests
     -- for reporting bugs, i would not rely on this, but instead the provided
@@ -14,8 +15,8 @@ return {
         path = "/tmp/" .. basename .. ".99.debug",
         print_on_error = true,
       },
-      --- model = "lmstudio-terra/qwen3/qwen3-coder-30b",
-      model = "opencode/kimi-k2.5-free",
+      model = "lmstudio/qwen/qwen3.6-35b-a3b",
+      --- model = "opencode/kimi-k2.5-free",
       --- WARNING: if you change cwd then this is likely broken
       --- ill likely fix this in a later change
       ---
@@ -45,13 +46,31 @@ return {
       _99.visual()
     end)
 
-    vim.keymap.set("v", "<leader>9vv", function()
-      _99.visual_prompt()
+
+    vim.keymap.set("n", "<leader>9o", function()
+      _99.open()
+    end)
+
+
+    vim.keymap.set("n", "<leader>9s", function()
+      _99.search()
+    end)
+
+    vim.keymap.set("n", "<leader>9w", function()
+      _worker.set_work()
+    end)
+
+    vim.keymap.set("n", "<leader>9ws", function()
+      _worker.search()
     end)
 
     --- if you have a request you dont want to make any changes, just cancel it
-    vim.keymap.set("v", "<leader>9s", function()
+    vim.keymap.set("n", "<leader>9x", function()
       _99.stop_all_requests()
+    end)
+
+    vim.keymap.set("n", "<leader>9m", function()
+      require("99.extensions.telescope").select_model()
     end)
   end,
 }

@@ -1,61 +1,74 @@
 {
   "$schema": "https://opencode.ai/config.json",
-  "model": "lmstudio-terra/qwen/qwen3-coder-30b",
+  "mcp": {
+    "blender": {
+      "type": "local",
+      "command": [
+        "uv",
+        "--directory",
+        "/Users/dozer/Repos/blender_mcp/mcp",
+        "run",
+        "blender-mcp"
+      ],
+      "enabled": true
+    }
+  },
+  "model": "lmstudio/qwen/qwen3.6-35b-a3b",
+  "small_model": "nvidia/nemotron-3-nano-4b",
   "autoupdate": false,
+  "default_agent": "plan",
   "share": "disabled",
    "provider": {
     "lmstudio": {
       "npm": "@ai-sdk/openai-compatible",
-      "name": "LM Studio (local)",
+      "name": "LM Studio",
       "options": {
         "baseURL": "http://127.0.0.1:1234/v1"
       },
       "models": {
-        "mistralai/devstral-small-2-2512": {
-          "name": "devstral-small",
+        "google/gemma-4-26b-a4b": {
+          "name": "gemma-4-26b-a4b",
           "limit": {
-            "context": 25000,
-            "output": 5000,
+            "context": 128000,
+            "output": 8192,
           }
         },
-        "mistralai/ministral-3-3b": {
-          "name": "ministral-3",
+        "google/gemma-4-e4b": {
+          "name": "gemma-4-e4b",
           "limit": {
-            "context": 25000,
-            "output": 5000,
+            "context": 131072,
+            "output": 8192,
           }
         },
-      }
-    },
-    "lmstudio-terra": {
-      "npm": "@ai-sdk/openai-compatible",
-      "name": "LM Studio (terra)",
-      "options": {
-        "baseURL": "http://192.168.8.169:1234/v1"
-      },
-      "models": {
-        "qwen/qwen3-coder-next": {
-          "name": "qwen3-coder-next",
+        "qwen/qwen3.6-35b-a3b": {
+          "name": "qwen3.6-35b-a3b",
           "limit": {
-            "context": 50000,
-            "output": 5000,
+            "context": 262144,
+            "output": 8192,
           }
         },
-        "qwen/qwen3-coder-30b": {
-          "name": "qwen3-coder",
+        "qwen/qwen3.6-27b": {
+          "name": "qwen3.6-27b",
           "limit": {
-            "context": 50000,
-            "output": 5000,
+            "context": 262144,
+            "output": 8192,
           }
         },
-        "nvidia-nemotron-3-nano-30b-a3b": {
+        "nvidia/nemotron-3-nano-4b": {
           "name": "nemotron-3-nano",
           "limit": {
-            "context": 50000,
-            "output": 5000,
+            "context": 32768,
+            "output": 8192,
+          }
+        },
+        "openai/gpt-oss-120b": {
+          "name": "gpt-oss-120b",
+          "limit": {
+            "context": 32768,
+            "output": 8192,
           }
         }
       }
     }
-  }
+   }
 }
