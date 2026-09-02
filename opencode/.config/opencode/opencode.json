@@ -7,7 +7,8 @@
         "npx",
         "-y",
         "@kimsungwhee/apple-docs-mcp"
-      ]
+      ],
+      "enabled": false
     },
     "blender": {
       "type": "local",
@@ -71,6 +72,13 @@
         },
         "nvidia/nemotron-3-nano-4b": {
           "name": "nemotron-3-nano",
+          "limit": {
+            "context": 32768,
+            "output": 8192
+          }
+        },
+        "tencent/hy-mt2-7b": {
+          "name": "hy-mt2-7b",
           "limit": {
             "context": 32768,
             "output": 8192
