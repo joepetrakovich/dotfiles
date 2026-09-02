@@ -6,7 +6,7 @@ return {
   {
     "neovim/nvim-lspconfig",
     init = function()
-      vim.lsp.enable({'lua_ls', 'ts_ls', 'svelte', 'kotlin_language_server', 'clangd', 'sourcekit' })
+      vim.lsp.enable({'lua_ls', 'ts_ls', 'svelte', 'kotlin_language_server', 'clangd', 'sourcekit', 'gdscript' })
       vim.diagnostic.config({
         virtual_text = true,
       })

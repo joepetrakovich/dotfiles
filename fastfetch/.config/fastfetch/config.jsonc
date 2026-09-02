@@ -19,15 +19,24 @@
     "kernel",
     "uptime",
     "shell",
-    "display",
+    {
+      "type": "display",
+      "format": "{name:-30}"
+    },
     "de",
     "wm",
     "icons",
     "terminal",
     "cpu",
     "gpu",
-    "memory",
-    "disk",
+    {
+      "type": "memory",
+      "format": "{used} / {total} ({percentage}%)"
+    },
+    {
+      "type": "disk",
+      "format": "{name:-30} {size-used} / {size-total}"
+    },
     "localip",
     "publicip",
     "battery",

@@ -1,6 +1,14 @@
 {
   "$schema": "https://opencode.ai/config.json",
   "mcp": {
+    "apple-docs": {
+      "type": "local",
+      "command": [
+        "npx",
+        "-y",
+        "@kimsungwhee/apple-docs-mcp"
+      ]
+    },
     "blender": {
       "type": "local",
       "command": [
@@ -10,15 +18,36 @@
         "run",
         "blender-mcp"
       ],
-      "enabled": true
+      "enabled": false
+    },
+    "xcode": {
+      "type": "local",
+      "command": [
+        "xcrun",
+        "mcpbridge"
+      ],
+      "enabled": false
+    },
+    "davinci-resolve": {
+      "type": "local",
+      "enabled": false,
+      "command": [
+        "/Users/dozer/Library/Application Support/davinci-resolve-mcp/venv/bin/python",
+        "/Users/dozer/Library/Application Support/davinci-resolve-mcp/src/server.py"
+      ],
+      "environment": {
+        "RESOLVE_SCRIPT_API": "/Library/Application Support/Blackmagic Design/DaVinci Resolve/Developer/Scripting",
+        "RESOLVE_SCRIPT_LIB": "/Applications/DaVinci Resolve/DaVinci Resolve.app/Contents/Libraries/Fusion/fusionscript.so",
+        "PYTHONPATH": "/Library/Application Support/Blackmagic Design/DaVinci Resolve/Developer/Scripting/Modules"
+      }
     }
   },
   "model": "lmstudio/qwen/qwen3.6-35b-a3b",
-  "small_model": "nvidia/nemotron-3-nano-4b",
+  "small_model": "lmstudio/nvidia/nemotron-3-nano-4b",
   "autoupdate": false,
   "default_agent": "plan",
   "share": "disabled",
-   "provider": {
+  "provider": {
     "lmstudio": {
       "npm": "@ai-sdk/openai-compatible",
       "name": "LM Studio",
@@ -26,49 +55,45 @@
         "baseURL": "http://127.0.0.1:1234/v1"
       },
       "models": {
-        "google/gemma-4-26b-a4b": {
-          "name": "gemma-4-26b-a4b",
-          "limit": {
-            "context": 128000,
-            "output": 8192,
-          }
-        },
-        "google/gemma-4-e4b": {
-          "name": "gemma-4-e4b",
-          "limit": {
-            "context": 131072,
-            "output": 8192,
-          }
-        },
         "qwen/qwen3.6-35b-a3b": {
           "name": "qwen3.6-35b-a3b",
           "limit": {
             "context": 262144,
-            "output": 8192,
+            "output": 8192
           }
         },
-        "qwen/qwen3.6-27b": {
-          "name": "qwen3.6-27b",
+        "qwen/qwen3.8-27b": {
+          "name": "qwen3.8-27b",
           "limit": {
             "context": 262144,
-            "output": 8192,
+            "output": 8192
           }
         },
         "nvidia/nemotron-3-nano-4b": {
           "name": "nemotron-3-nano",
           "limit": {
             "context": 32768,
-            "output": 8192,
+            "output": 8192
           }
-        },
-        "openai/gpt-oss-120b": {
-          "name": "gpt-oss-120b",
+        }
+      }
+    },
+    "unsloth-studio": {
+      "name": "Unsloth Studio",
+      "npm": "@ai-sdk/openai-compatible",
+      "options": {
+        "baseURL": "http://localhost:8888/v1/"
+      },
+      "models": {
+        "unsloth/Qwen3.8-Flash-Next-GGUF": {
+          "name": "Qwen3.8-Flash-Next",
           "limit": {
-            "context": 32768,
-            "output": 8192,
+            "context": 262144,
+            "output": 8192
           }
         }
       }
     }
-   }
+  },
+  "disabled_providers": []
 }
