@@ -1,6 +1,6 @@
 {
   "$schema": "https://opencode.ai/config.json",
-  "model": "lmstudio/qwen/qwen3.6-35b-a3b",
+  "model": "unsloth-studio/unsloth/Qwen3.8-Flash-Next-GGUF",
   "default_agent": "plan",
   "share": "disabled",
   "update": "disable",
@@ -63,6 +63,11 @@
   },
   "mcp": {
     "servers": {
+      "resend": {
+        "type": "remote",
+        "url": "https://mcp.resend.com/mcp",
+        "disabled": true
+      },
       "apple-docs": {
         "type": "local",
         "command": [
@@ -91,19 +96,6 @@
         ],
         "disabled": true
       },
-      "davinci-resolve": {
-        "type": "local",
-        "disabled": true,
-        "command": [
-          "/Users/dozer/Library/Application Support/davinci-resolve-mcp/venv/bin/python",
-          "/Users/dozer/Library/Application Support/davinci-resolve-mcp/src/server.py"
-        ],
-        "environment": {
-          "RESOLVE_SCRIPT_API": "/Library/Application Support/Blackmagic Design/DaVinci Resolve/Developer/Scripting",
-          "RESOLVE_SCRIPT_LIB": "/Applications/DaVinci Resolve/DaVinci Resolve.app/Contents/Libraries/Fusion/fusionscript.so",
-          "PYTHONPATH": "/Library/Application Support/Blackmagic Design/DaVinci Resolve/Developer/Scripting/Modules"
-        }
-      },
       "chrome-devtools": {
         "type": "local",
         "disabled": true,
@@ -122,6 +114,23 @@
           "touchdesigner-mcp-server@latest",
           "--stdio"
         ]
+      },
+      "davinci-resolve": {
+        "type": "local",
+        "disabled": true,
+        "command": [
+          "/Applications/DaVinci Resolve/DaVinci Resolve.app/Contents/Applications/ResolveMCP"
+        ]
+      },
+      "browse": {
+        "type": "local",
+        "command": [
+          "/Users/dozer/.local/bin/browse",
+          "mcp"
+        ],
+        "environment": {
+          "OPENCODE_BROWSER_RUNTIME": "auto-update"
+        }
       }
     }
   },
